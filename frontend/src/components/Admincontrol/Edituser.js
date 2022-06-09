@@ -59,7 +59,7 @@ function Register() {
 
   return (
     <div>
-         <Container>
+         <Container  className="my-5" style={{backgroundColor:"lightblue"}}>
         <div style={{fontSize:100}}>
           Register
         </div>

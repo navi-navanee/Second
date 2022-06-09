@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, Container, Navbar } from 'react-bootstrap'
 
 function Admincontrol() {
   const navigate=useNavigate()
@@ -43,7 +43,7 @@ useEffect(() => {
     return users.name.toLowerCase().match(search.toLowerCase());
   });
   setfilterValue(result);
-}, [search]);
+}, [search ,userDetails ]);
 
 
 const deleteuser = async (userId) => {
@@ -89,41 +89,47 @@ const columns = [
     sortable: true,
   },
   {
-    name: "",
+    name: "Options",
     cell: (row) => (
+      <div>
       <Button
-        variant="outlined"
-        color="primary"
-        
         onClick={() => {
-          editHandler(row._id);
-        }}
-      >
-        Edit
+        editHandler(row._id);
+        }}>Edit
       </Button>
+
+           <Button style= {{color:"red" , backgroundColor:"black",marginLeft:"5px"}}
+           onClick={() => deleteuser(row._id)}
+         >
+           Delete
+         </Button>
+         </div>
     ),
   },
-  {
-    name: "",
-    cell: (row) => (
-      <Button
-        variant="outlined"
-        color="error"
-        onClick={() => deleteuser(row._id)}
-      >
-        Delete
-      </Button>
-    ),
-  },
+
 
 ]
 
   return (
+<div>
+<Navbar bg='primary'>
+    <Container>
+      <Navbar.Brand >welcome Admin</Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse className="justify-content-end">
+      <Navbar.Brand onClick={() => {
+        localStorage.clear();
+        navigate('/admin')
+      }}>Logout</Navbar.Brand>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
+
     <div
-    className="d-flex justify-content-center"
+    className="d-flex justify-content-center mt-5"
     style={{ marginTop: "150px" }}
   >
-    <Card style={{ height: "100%", width: "80%" }}>
+    <Card style={{ height: "100%", width: "80%" ,backgroundColor:"rebeccapurple"}}>
       <DataTable
         title={"User Details"}
         columns={columns}
@@ -145,6 +151,7 @@ const columns = [
         }
       />
     </Card>
+  </div>
   </div>
   )
 }

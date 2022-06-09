@@ -9,7 +9,7 @@ function Register() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState({})
+  const [error, setError] = useState('')
 
    const navigate=useNavigate()
   
@@ -27,13 +27,13 @@ function Register() {
        { name,email,password},
        config
        );
-      //  localStorage.setItem("userInfo",JSON.stringify(data));
-      //  if(localStorage.userInfo){
+
          navigate('/user')
-      //  }
-     } catch (err) {
+
+     } catch (error) {
+       console.log("error......",error.response.data);
       
-      setError(err.response.data.message)
+      setError(error.response.data)
      }
 
 
@@ -41,7 +41,7 @@ function Register() {
 
   return (
     <div>
-         <Container>
+         <Container  className="my-5" style={{backgroundColor:"lightblue"}}>
         <div style={{fontSize:100}}>
           Register
         </div>
@@ -54,12 +54,17 @@ function Register() {
     <Form.Control type="text" placeholder="Enter Your Name" value={name} onChange = {
     (e)=>setName(e.target.value)
     }  />
+    <Form.Label style={{color:"red"}}>{error.name ? error.name : ''}</Form.Label>
+   
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => {
       setEmail(e.target.value)
     }} />
+    <Form.Label style={{color:"red"}}>{error.email ? error.email : ''}</Form.Label>
+
+   
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -70,6 +75,7 @@ function Register() {
     <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>{
       setPassword(e.target.value)
     }} />
+     <Form.Label style={{color:"red"}}>{error.password ? error.password : ''}</Form.Label>
   </Form.Group>
   <Button variant="primary" type="submit">
     Submit
@@ -78,7 +84,7 @@ function Register() {
    
 <Row className='py-3'>
 <Col>
-Existing User ? <Link to="/">Alredy user Login Here</Link>
+Existing User ? <Link style={{color:"darkgreen"}} to="/"> Alredy user Login Here</Link>
 </Col>
 </Row>
 </Container>

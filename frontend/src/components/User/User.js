@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Navbar } from 'react-bootstrap'
+import { Button, Card, Container, Navbar } from 'react-bootstrap'
 import { useNavigate} from "react-router-dom";
 
 
@@ -20,18 +20,34 @@ function User() {
 
 
   return (
+    <>
+    
     <Navbar bg='primary'>
     <Container>
       <Navbar.Brand >welcome {user.name}</Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
-      <Navbar.Brand onClick={() => {
+      <Navbar.Brand style={{cursor:"pointer"}} onClick={() => {
         localStorage.clear();
         navigate('/')
       }}>Logout</Navbar.Brand>
       </Navbar.Collapse>
     </Container>
   </Navbar>
+
+
+<Container>
+
+<Card  className="text-center" style={{ width: '100%',backgroundColor:"red", marginTop:"15rem"}}>
+  <Card.Body>
+    <Card.Title>WELCOME</Card.Title>
+  </Card.Body>
+</Card>
+
+</Container>
+  </>
+
+  
   )
 }
 

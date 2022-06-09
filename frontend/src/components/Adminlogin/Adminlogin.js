@@ -40,7 +40,7 @@ function Adminlogin() {
 
   return (
 
-         <Container>
+         <Container  className="my-5" style={{backgroundColor:"lightblue"}}>
         <div style={{fontSize:100}}>
           ADMIN LOGIN
         </div>
