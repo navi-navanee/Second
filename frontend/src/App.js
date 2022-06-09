@@ -4,6 +4,7 @@ import User from "./components/User/User";
 import Register from './components/Register/Register'
 import Admincontrol from "./components/Admincontrol/Admincontrol";
 import Adminlogin from "./components/Adminlogin/Adminlogin";
+import Edituser from './components/Admincontrol/Edituser'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
          <Route path="/register" element={<Register/>} />
          <Route path="/admin" element={<Adminlogin />} />
          <Route path="/admincontrol" element={<Admincontrol/>} />
+         <Route path="/edituser/:userId" element={<Edituser/>} />
 
        </Routes>
   </BrowserRouter>
