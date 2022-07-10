@@ -9,7 +9,7 @@ function Register() {
     const navigate=useNavigate()
   const [name, setname] = useState("")
   const [email, setemail] = useState("")
-  const [password, setPassword] = useState("")
+
   const [error, setError] = useState({})
   const userId = useParams();
 

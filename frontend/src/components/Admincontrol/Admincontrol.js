@@ -47,7 +47,7 @@ useEffect(() => {
 
 
 const deleteuser = async (userId) => {
-  if (window.confirm(`Sure to Delete?`)) {
+  if (window.confirm(`Are you want to delete....?`)) {
   try {
     const config = {
       headers: {
