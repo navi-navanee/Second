@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Usermanagment/static/css/main.ffad9842.css",
+    "main.js": "/Usermanagment/static/js/main.b9ca7811.js",
+    "index.html": "/Usermanagment/index.html",
+    "main.ffad9842.css.map": "/Usermanagment/static/css/main.ffad9842.css.map",
+    "main.b9ca7811.js.map": "/Usermanagment/static/js/main.b9ca7811.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ffad9842.css",
+    "static/js/main.b9ca7811.js"
+  ]
+}
